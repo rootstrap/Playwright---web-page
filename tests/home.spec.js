@@ -30,26 +30,93 @@ test('Header pages', async ({ page }) => {
   await page.getByRole('link', { name: 'Let\'s Talk', exact: true }).click();
 })
 
-test('lets talk', async ({ page }) => {
+test('Lets talk - Form', async ({ page }) => {
   await page.goto('https://www.rootstrap.com/');
-  await page.getByRole('link', { name: 'Let\'s Talk', exact: true }).click();
-  await page.getByLabel('Your first name*').click();
-  await page.getByText('Your first name* This field').click();
-  await page.getByLabel('Your first name*').click();
-  await page.getByLabel('Your first name*').fill('Juan');
-  await page.getByLabel('Your first name*').press('Tab');
-  await page.getByLabel('Your last name*').fill('Perez');
-  await page.getByLabel('Your last name*').press('Tab');
-  await page.getByLabel('Your email address*').fill('juanperez@gmail.com');
-  await page.getByLabel('Your email address*').press('Tab');
-  await page.getByLabel('Phone number*').fill('4444444444444');
-  await page.getByLabel('Phone number*').press('Tab');
-  await page.getByLabel('How did you hear about us?*').fill('Linkedin');
-  await page.getByLabel('How did you hear about us?*').press('Tab');
-  await page.locator('#Help-2').press('Tab');
-  await page.getByPlaceholder('Tell us about your project*').fill('QA team');
+
+  const letsTalkLink = page.getByRole('link', { name: 'Let\'s Talk', exact: true });
+  await expect(letsTalkLink).toBeVisible();
+  await expect(letsTalkLink).toBeEnabled();
+  await letsTalkLink.click();
+
+  const firstNameField = page.getByLabel('Your first name*');
+  await expect(firstNameField).toBeVisible();
+  await expect(firstNameField).toBeEnabled();
+  await firstNameField.fill('Juan');
+  await firstNameField.press('Tab');
+
+  const lastNameField = page.getByLabel('Your last name*');
+  await expect(lastNameField).toBeVisible();
+  await expect(lastNameField).toBeEnabled();
+  await lastNameField.fill('Perez');
+  await lastNameField.press('Tab');
+
+  const emailField = page.getByLabel('Your email address*');
+  await expect(emailField).toBeVisible();
+  await expect(emailField).toBeEnabled();
+  await emailField.fill('juanperez@gmail.com');
+  await emailField.press('Tab');
+
+  const phoneNumberField = page.getByLabel('Phone number*');
+  await expect(phoneNumberField).toBeVisible();
+  await expect(phoneNumberField).toBeEnabled();
+  await phoneNumberField.fill('4444444444');
+  await phoneNumberField.press('Tab');
+
+  const heardAboutUsField = page.getByLabel('How did you hear about us?*');
+  await expect(heardAboutUsField).toBeVisible();
+  await expect(heardAboutUsField).toBeEnabled();
+  await heardAboutUsField.fill('LinkedIn');
+  await heardAboutUsField.press('Tab');
+
+  // Assuming #Help-2 is a valid selector for an element, we include it here
+  const helpSection = page.locator('#Help-2');
+  await expect(helpSection).toBeVisible();
+  await helpSection.selectOption('Other'); // No enabled check as it might not be applicable
+  await helpSection.press('Tab');
+
+  const projectDescriptionField = page.getByPlaceholder('Tell us about your project*');
+  await expect(projectDescriptionField).toBeVisible();
+  await expect(projectDescriptionField).toBeEnabled();
+  await projectDescriptionField.fill('QA team');
+
+  // Assertions for the submit button, modify selector as necessary
+  const submitButton = page.getByRole('button', { name: 'Send Request' }); // Change 'Submit' if the button has a different name
+  await expect(submitButton).toBeVisible();
+  await expect(submitButton).toBeEnabled();
+  // Uncomment below line when you want to submit the form
+  // await submitButton.click();
 });
 
+test('Usability test', async ({ page }) => {
+  await page.goto('https://www.rootstrap.com/');
+  await page.getByRole('button', { name: 'Accept' }).click();
+
+  const scrollToFeaturedProjectsLink = page.getByRole('link', { name: 'Scroll to featured projects' });
+  await expect(scrollToFeaturedProjectsLink).toBeVisible(); 
+  await scrollToFeaturedProjectsLink.click();
+
+  const uxDesignLocator = page.locator('div').filter({ hasText: 'Design & User ExperienceUX' }).nth(1);
+  await expect(uxDesignLocator).toBeVisible(); 
+
+  const unleashYourOrganizationHeading = page.getByRole('heading', { name: 'Unleash your organization\'s' });
+  await expect(unleashYourOrganizationHeading).toBeVisible(); 
+
+  const whatsNewOurBlogHeading = page.getByRole('heading', { name: 'What\'s New? ‍Our Blog' });
+  await expect(whatsNewOurBlogHeading).toBeVisible(); 
+
+  const logosOverlayClickArea = page.locator('.c-logos-section-overlay__light');
+  await expect(logosOverlayClickArea).toBeVisible(); 
+
+  const contributeToOurMissionSection = page.locator('section').filter({ hasText: 'Contribute to Our MissionJoin' });
+  await expect(contributeToOurMissionSection).toBeVisible(); 
+
+  const contributeToOurMissionHeading = page.getByRole('heading', { name: 'Contribute to Our Mission' });
+  await expect(contributeToOurMissionHeading).toBeVisible(); 
+
+  const openPositionsTextContainer = page.locator('.c-open-positions-text-container > .c-cta-wrapper');
+  await expect(openPositionsTextContainer).toBeVisible(); 
+  await openPositionsTextContainer.click();
+});
 
 
 
