@@ -30,6 +30,26 @@ test('Header pages', async ({ page }) => {
   await page.getByRole('link', { name: 'Let\'s Talk', exact: true }).click();
 })
 
+test('lets talk', async ({ page }) => {
+  await page.goto('https://www.rootstrap.com/');
+  await page.getByRole('link', { name: 'Let\'s Talk', exact: true }).click();
+  await page.getByLabel('Your first name*').click();
+  await page.getByText('Your first name* This field').click();
+  await page.getByLabel('Your first name*').click();
+  await page.getByLabel('Your first name*').fill('Juan');
+  await page.getByLabel('Your first name*').press('Tab');
+  await page.getByLabel('Your last name*').fill('Perez');
+  await page.getByLabel('Your last name*').press('Tab');
+  await page.getByLabel('Your email address*').fill('juanperez@gmail.com');
+  await page.getByLabel('Your email address*').press('Tab');
+  await page.getByLabel('Phone number*').fill('4444444444444');
+  await page.getByLabel('Phone number*').press('Tab');
+  await page.getByLabel('How did you hear about us?*').fill('Linkedin');
+  await page.getByLabel('How did you hear about us?*').press('Tab');
+  await page.locator('#Help-2').press('Tab');
+  await page.getByPlaceholder('Tell us about your project*').fill('QA team');
+});
+
 
 
 
