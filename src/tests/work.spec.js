@@ -11,16 +11,22 @@ test.describe('Study Cases', () => {
   });
 
   test('Master Class - Study Case', async ({ page }) => {
-    await WorkPage.checkHomePageTitle();
+    await WorkPage.checkWorkPageTitle();
     await WorkPage.masterClassStudyCase();
   });
   test('Emeritus - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.emeritusStudyCase();
 
   });
   test('Livestock Health - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.liveStockStudyCase();
 
   });
   test('Madison Reed - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.madisonReedStudyCase();
 
   });
 });
