@@ -23,6 +23,12 @@ class workPage {
     await this.page.getByLabel('next slide').click();
     await this.page.goto('https://rs2-0-1.webflow.io/our-work');
   }
+
+  async scrollAndCheckVisibility(page, selector) {
+    const element = page.locator(selector);
+    await element.scrollIntoViewIfNeeded();
+    await expect(element).toBeVisible();
+  }
   
 
   async masterClassStudyCase(){
@@ -73,11 +79,6 @@ class workPage {
     await this.moreProjectsCaroussel();
   }
   async emeritusStudyCase() {
-    async function scrollAndCheckVisibility(page, selector) {
-        const element = page.locator(selector);
-        await element.scrollIntoViewIfNeeded();
-        await expect(element).toBeVisible();
-      }
     await this.page.getByRole('link', { name: 'Livestock Health Emeritus' }).click();
     await expect(this.page.getByText('Revamp and Ramp Up: How')).toBeVisible();
     await expect(this.page.getByRole('img', { name: 'Thumbnails of various classes' })).toBeVisible();
@@ -109,9 +110,9 @@ class workPage {
     await expect(this.page.getByText('The Emeritus Enrollment')).toBeVisible();
     await expect(this.page.getByText('Our team was also tasked with')).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'What we did?' })).toBeVisible();
-    await scrollAndCheckVisibility(this.page, '[class="c-emeritus-phone-image _1"]');
-    await scrollAndCheckVisibility(this.page, '[class="c-emeritus-phone-image _2"]');
-    await scrollAndCheckVisibility(this.page, '[class="c-emeritus-phone-image _3"]');
+    await this.scrollAndCheckVisibility(this.page, '[class="c-emeritus-phone-image _1"]');
+    await this.scrollAndCheckVisibility(this.page, '[class="c-emeritus-phone-image _2"]');
+    await this.scrollAndCheckVisibility(this.page, '[class="c-emeritus-phone-image _3"]');
     await expect(this.page.getByRole('heading', { name: 'We progressively grew the' })).toBeVisible();
     await expect(this.page.getByText('Developing new back and')).toBeVisible();
     await expect(this.page.getByText('ACHIVEMENTS')).toBeVisible();
@@ -224,7 +225,7 @@ class workPage {
   }
   async eyeLevelStudyCase() {
     await expect(this.page.getByRole('heading', { name: 'All Projects' })).toBeVisible();
-    await page.getByRole('link', { name: 'Eye Level Learning Eye Level' }).click();
+    await this.page.getByRole('link', { name: 'Eye Level Learning Eye Level' }).click();
     await expect(this.page.getByText('Eye Level Learning &')).toBeVisible();
     await expect(this.page.getByRole('img', { name: 'Thumbnails of various classes' })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'EYE LEVEL LEARNING (AKA' })).toBeVisible();
@@ -245,7 +246,7 @@ class workPage {
     await expect(this.page.getByText('Eye Level Learning is a')).toBeVisible();
     await expect(this.page.getByRole('img', { name: 'Smiling girl studying and' })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Eye Level Learning set out to' })).toBeVisible();
-    await expect(this.page.locator('section').filter({ hasText: 'Eye Level Learning set out to' }).locator('img')).toBeVisible();
+    await this.scrollAndCheckVisibility(this.page, '[class="c-gradient-divider-container"]');
     await expect(this.page.getByRole('heading', { name: 'The main challenge they' })).toBeVisible();
     await expect(this.page.getByText('This required additional')).toBeVisible();
     await expect(this.page.getByRole('img', { name: 'Mockup of two screens from' })).toBeVisible();
@@ -277,55 +278,53 @@ class workPage {
   }
   async fuzzyStudyCase() {
     await expect(this.page.getByRole('heading', { name: 'All Projects' })).toBeVisible();
-    await this.page.getByRole('link', { name: 'Fuzzy Fuzzy Making pet care' }).click();
+    await this.page.getByRole('link', { name: 'Fuzzy Fuzzy Making pet care'}).click();
     await expect(this.page.getByText('Fuzzy & Rootstrap: Making pet')).toBeVisible();
-await expect(this.page.getByRole('img', { name: 'Thumbnails of various classes' })).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'Fuzzy', exact: true })).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'Services Provided' })).toBeVisible();
-await expect(this.page.getByText('Project Type')).toBeVisible();
-await expect(this.page.getByText('Industry', { exact: true })).toBeVisible();
-await expect(this.page.locator('div').filter({ hasText: /^Embedded Teams$/ }).nth(1)).toBeVisible();
-await expect(this.page.locator('div').filter({ hasText: '-2023' }).nth(3)).toBeVisible();
-await expect(this.page.locator('div').filter({ hasText: /^Pet Food & Supplies$/ }).nth(1)).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'The Team' })).toBeVisible();
-await expect(this.page.getByText('Product Designers')).toBeVisible();
-await expect(this.page.getByText('Android Developers')).toBeVisible();
-await expect(this.page.getByText('iOS Developers')).toBeVisible();
-await expect(this.page.getByText('Web Developers')).toBeVisible();
-await expect(this.page.getByText('QA Analyst')).toBeVisible();
-await expect(this.page.getByText('Frontend Developers')).toBeVisible();
-await expect(this.page.getByText('Designer', { exact: true })).toBeVisible();
-await expect(this.page.getByRole('img', { name: 'Smiling girl studying and' })).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'About the Client' })).toBeVisible();
-await expect(this.page.getByText('Fuzzy is a subscription-based')).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'The challenge' })).toBeVisible();
-await expect(this.page.getByText('Like many startups, Fuzzy has')).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'What we did?' })).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'eCOMMM & WEB' })).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'Selling Goods and Services' })).toBeVisible();
-await expect(this.page.getByText('Rootstrap was handed an')).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'eCommerce Subscriptions' })).toBeVisible();
-await expect(this.page.getByText('As part of Fuzzy’s commitment')).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'Redesigning Academy, Fuzzy’s' })).toBeVisible();
-await expect(this.page.getByText('Rootstrap was tasked to')).toBeVisible();
-await expect(this.page.locator('section').filter({ hasText: 'What we did?eCOMMM &' }).locator('img').first()).toBeVisible();
-await expect(this.page.locator('section').filter({ hasText: 'What we did?eCOMMM &' }).locator('img').nth(1)).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'TELEHEALTH' })).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'Building an Online Medical' })).toBeVisible();
-await expect(this.page.getByText('Rootstrap redesigned and')).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'Making Telemedicine' })).toBeVisible();
-await expect(this.page.getByText('The mobile app was a portal')).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'Empowering Internal Fuzzy Team' })).toBeVisible();
-await expect(this.page.getByText('The questionnaires were')).toBeVisible();
-await expect(this.page.getByRole('img', { name: 'Collection of diverse mockups' })).toBeVisible();
-await expect(this.page.getByRole('heading', { name: 'Key Technologies Used' })).toBeVisible();
-await expect(this.page.getByText('Mobile - Native Android,')).toBeVisible();
-await expect(this.page.getByText('eCommerce - Shopify')).toBeVisible();
-await expect(this.page.getByText('Web Development - ReactJS,')).toBeVisible();
-await expect(this.page.getByText('DevOps Technologies - AWS,')).toBeVisible();
-await expect(this.page.getByText('Data Engineering - Amplitude')).toBeVisible();
-await expect(this.page.getByText('Backend Development - Ruby on')).toBeVisible();
-await expect(this.page.getByText('Content Manager - Contentful')).toBeVisible();
+    await expect(this.page.getByRole('img', { name: 'Thumbnails of various classes' })).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'Fuzzy', exact: true })).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'Services Provided' })).toBeVisible();
+    await expect(this.page.getByText('Project Type')).toBeVisible();
+    await expect(this.page.getByText('Industry', { exact: true })).toBeVisible();
+    await expect(this.page.locator('div').filter({ hasText: /^Embedded Teams$/ }).nth(1)).toBeVisible();
+    await expect(this.page.locator('div').filter({ hasText: '-2023' }).nth(3)).toBeVisible();
+    await expect(this.page.locator('div').filter({ hasText: /^Pet Food & Supplies$/ }).nth(1)).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'The Team' })).toBeVisible();
+    await expect(this.page.getByText('Product Designers')).toBeVisible();
+    await expect(this.page.getByText('Android Developers')).toBeVisible();
+    await expect(this.page.getByText('iOS Developers')).toBeVisible();
+    await expect(this.page.getByText('Web Developers')).toBeVisible();
+    await expect(this.page.getByText('QA Analyst')).toBeVisible();
+    await expect(this.page.getByText('Frontend Developers')).toBeVisible();
+    await expect(this.page.getByText('Designer', { exact: true })).toBeVisible();
+    await expect(this.page.getByRole('img', { name: 'Smiling girl studying and' })).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'About the Client' })).toBeVisible();
+    await expect(this.page.getByText('Fuzzy is a subscription-based')).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'The challenge' })).toBeVisible();
+    await expect(this.page.getByText('Like many startups, Fuzzy has')).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'What we did?' })).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'eCOMMM & WEB' })).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'Selling Goods and Services' })).toBeVisible();
+    await expect(this.page.getByText('Rootstrap was handed an')).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'eCommerce Subscriptions' })).toBeVisible();
+    await expect(this.page.getByText('As part of Fuzzy’s commitment')).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'Redesigning Academy, Fuzzy’s' })).toBeVisible();
+    await expect(this.page.getByText('Rootstrap was tasked to')).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'TELEHEALTH' })).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'Building an Online Medical' })).toBeVisible();
+    await expect(this.page.getByText('Rootstrap redesigned and')).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'Making Telemedicine' })).toBeVisible();
+    await expect(this.page.getByText('The mobile app was a portal')).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'Empowering Internal Fuzzy Team' })).toBeVisible();
+    await expect(this.page.getByText('The questionnaires were')).toBeVisible();
+    await expect(this.page.getByRole('img', { name: 'Collection of diverse mockups' })).toBeVisible();
+    await expect(this.page.getByRole('heading', { name: 'Key Technologies Used' })).toBeVisible();
+    await expect(this.page.getByText('Mobile - Native Android,')).toBeVisible();
+    await expect(this.page.getByText('eCommerce - Shopify')).toBeVisible();
+    await expect(this.page.getByText('Web Development - ReactJS,')).toBeVisible();
+    await expect(this.page.getByText('DevOps Technologies - AWS,')).toBeVisible();
+    await expect(this.page.getByText('Data Engineering - Amplitude')).toBeVisible();
+    await expect(this.page.getByText('Backend Development - Ruby on')).toBeVisible();
+    await expect(this.page.getByText('Content Manager - Contentful')).toBeVisible();
     
   }
   async farmersDogStudyCase() {
@@ -361,6 +360,7 @@ await expect(this.page.getByText('Content Manager - Contentful')).toBeVisible();
     await expect(this.page.getByText('Rootstrap was also committed')).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Integration and Refactoring' })).toBeVisible();
     await expect(this.page.getByText('Rootstrap joined the Vet')).toBeVisible();
+    await this.scrollAndCheckVisibility(this.page, '[class="c-image-parallax cc-desktop cc-h-auto"]');
     await expect(this.page.getByRole('img', { name: 'Desktop onboarding screen' })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'eCOMM & WEB' }).first()).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Order and Shipment Control' })).toBeVisible();
@@ -388,10 +388,8 @@ await expect(this.page.getByText('Content Manager - Contentful')).toBeVisible();
     await expect(this.page.getByText('GraphQL')).toBeVisible();
     await expect(this.page.getByText('Postgres')).toBeVisible();
     await expect(this.page.getByText('DynamoDB')).toBeVisible();
-
-
-    
   }
+  
   async blidsyStudyCase() {
     
   }

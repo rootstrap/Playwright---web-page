@@ -29,6 +29,22 @@ test.describe('Study Cases', () => {
     await WorkPage.madisonReedStudyCase();
 
   });
+
+  test('Eye Level learning - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.eyeLevelStudyCase();
+
+  });
+
+  test('Fuzzy - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.fuzzyStudyCase();
+  });
+
+  test('The farmers dog - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.farmersDogStudyCase();
+  });
 });
 
 
