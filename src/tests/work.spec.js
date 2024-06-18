@@ -1,5 +1,4 @@
 const { test, } = require('@playwright/test');
-const HomePage = require('../pageObjects/homePage/homePage');
 const workPage = require('../pageObjects/workPage/ourWorkPage')
 
 
@@ -44,6 +43,36 @@ test.describe('Study Cases', () => {
   test('The farmers dog - Study Case', async ({ page }) => {
     await WorkPage.checkWorkPageTitle();
     await WorkPage.farmersDogStudyCase();
+  });
+
+  test('Blidsy - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.blidsyStudyCase();
+  });
+
+  test('Hatch Coding - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.hatchCodingStudyCase();
+  });
+
+  test('EXI - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.exiStudyCase();
+  });
+
+  test('Doorspace - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.doorSpaceStudyCase();
+  });
+
+  test('Non profit - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.nonProfitStudyCase();
+  });
+
+  test('Summum - Study Case', async ({ page }) => {
+    await WorkPage.checkWorkPageTitle();
+    await WorkPage.summumStudyCase();
   });
 });
 
