@@ -28,6 +28,11 @@ test.describe('Home Tests', () => {
   test('Social Media Validation', async ({ page }) => {
     await homePage.socialMediaValidation();
   });
+
+  test('Expertise services page', async ({ page }) => {
+    await homePage.checkHomePageTitle();
+    await homePage.expertisePage();
+  });
 });
 
 

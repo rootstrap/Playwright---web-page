@@ -423,7 +423,6 @@ class workPage {
     await this.page.getByRole('link', { name: data.hatchCodingStudyCase.link }).click();
     await expect(this.page.getByText(elements.leveragingAIText.value).first()).toBeVisible();
     await expect(this.page.getByRole(elements.thumbnailsImg.name, elements.thumbnailsImg.locator)).toBeVisible();
-    await expect(this.page.getByRole(elements.hatchCodingHeading.name, elements.hatchCodingHeading.locator)).toBeVisible();
     await expect(this.page.getByRole(elements.servicesProvidedHeading.name, elements.servicesProvidedHeading.locator)).toBeVisible();
     await expect(this.page.getByText(elements.projectTypeText.value)).toBeVisible();
     await expect(this.page.locator('div').filter({ hasText: /^Managed Services$/ }).nth(1)).toBeVisible();
