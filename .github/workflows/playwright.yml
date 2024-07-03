@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       fileType:
-        description: 'Tipo de paginas a ejecutar'
+        description: 'Tipo de pagina a ejecutar'
         required: true
         default: 'all'
         type: choice
