@@ -1,9 +1,27 @@
 name: Playwright Tests
+
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
+  schedule:
+    - cron: "0 10 * * 1-5"  # Ejecutar a las 10 AM de lunes a viernes
+  workflow_dispatch:
+    inputs:
+      fileType:
+        description: 'Tipo de paginas a ejecutar'
+        required: true
+        default: 'all'
+        type: choice
+        options:
+          - all
+          - about
+          - careers
+          - home
+          - services
+          - work
+
 jobs:
   test:
     timeout-minutes: 60
@@ -18,7 +36,11 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npx playwright test --project=chromium
+      run: |
+        if [ "${{ github.event.inputs.fileType }}" == "all" ]; then
+          npx playwright test --project=chromium
+        else
+          npx playwright test tests/${{ github.event.inputs.fileType }}.spec.js --project=chromium
     - uses: actions/upload-artifact@v4
       if: always()
       with:

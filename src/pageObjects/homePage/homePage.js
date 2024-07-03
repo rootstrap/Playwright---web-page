@@ -90,7 +90,7 @@ class HomePage {
     await this.page.getByLabel('Home').click();
   }
 
-  async expertisePage() {
+  async designExperienceService() {
     await this.page.getByRole('link', { name: 'Expertise' }).click();
     await expect(this.page.getByRole('link', { name: 'Expertise' })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Our Expertise' })).toBeVisible();
@@ -103,8 +103,9 @@ class HomePage {
     await expect(this.page.getByText('Visual design systems')).toBeVisible();
     await expect(this.page.locator('.learn-more-container').first()).toBeVisible();
     await this.page.locator('.learn-more-container').first().click();
-    await this.page.goto('https://rs2-0-1.webflow.io/#services');
+  }
 
+  async productStrategyService() {
     await this.page.getByRole('heading', { name: 'Product Strategy' }).click();
     await expect(this.page.getByRole('heading', { name: 'Product Strategy' })).toBeVisible();
     await expect(this.page.getByText('Product Strategy', { exact: true })).toBeVisible();
@@ -113,8 +114,9 @@ class HomePage {
     await expect(this.page.getByText('User-Centered Product')).toBeVisible();
     await expect(this.page.locator('#w-node-ac7ac44a-413f-bac6-41f0-ab905bdb2ddf-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container')).toBeVisible();
     await this.page.locator('#w-node-ac7ac44a-413f-bac6-41f0-ab905bdb2ddf-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container').click();
-    await this.page.goto('https://rs2-0-1.webflow.io/#services');
+  }
 
+  async webDevelopmentService() {
     await this.page.getByText('Web & MobileDevelopmentWeb &').click();
     await expect(this.page.getByRole('heading', { name: 'Web & Mobile Development' })).toBeVisible();
     await expect(this.page.getByText('Web & Mobile Development')).toBeVisible();
@@ -125,8 +127,9 @@ class HomePage {
     await expect(this.page.getByText('QA Testing')).toBeVisible();
     await expect(this.page.locator('#w-node-bd493d5b-208e-dbf0-1693-7c2abad28b85-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container')).toBeVisible();
     await this.page.locator('#w-node-bd493d5b-208e-dbf0-1693-7c2abad28b85-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container').click();
-    await this.page.goto('https://rs2-0-1.webflow.io/#services');
+  }
 
+  async cloudDevopsService() {
     await this.page.getByText('Cloud &DevOpsCloud').click();
     await expect(this.page.getByRole('heading', { name: 'Cloud & DevOps' })).toBeVisible();
     await expect(this.page.getByText('Cloud Consulting')).toBeVisible();
@@ -136,8 +139,9 @@ class HomePage {
     await expect(this.page.getByText('Cloud Migration & Process')).toBeVisible();
     await expect(this.page.locator('#w-node-a780b1c4-05c4-ef5c-530c-976dd7f45d7c-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container')).toBeVisible();
     await this.page.locator('#w-node-a780b1c4-05c4-ef5c-530c-976dd7f45d7c-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container').click();
-    await this.page.goto('https://rs2-0-1.webflow.io/#services');
+  }
 
+  async aiService() {
     await this.page.getByText('ArtificialIntelligenceNLPGenerative AIEnd-to-end ProjectsAI Product Strategy &').click();
     await expect(this.page.getByRole('heading', { name: 'Artificial Intelligence' })).toBeVisible();
     await expect(this.page.getByText('NLP')).toBeVisible();
@@ -147,8 +151,9 @@ class HomePage {
     await expect(this.page.getByText('AI Ethics')).toBeVisible();
     await expect(this.page.locator('#w-node-_590e5cee-006d-b551-5264-ea654e7b0a02-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container')).toBeVisible();
     await this.page.locator('#w-node-_590e5cee-006d-b551-5264-ea654e7b0a02-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container').click();
-    await this.page.goto('https://rs2-0-1.webflow.io/#services');
+  }
 
+  async dataService() {
     await this.page.getByText('DataServicesData Warehouse').click();
     await expect(this.page.getByRole('heading', { name: 'Data Services' })).toBeVisible();
     await expect(this.page.getByText('Data Warehouse Management')).toBeVisible();
@@ -157,8 +162,9 @@ class HomePage {
     await expect(this.page.getByText('Big Data Processing and Data')).toBeVisible();
     await expect(this.page.locator('#w-node-ac940572-72ff-2058-e19f-5505ed99a755-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container')).toBeVisible();
     await this.page.locator('#w-node-ac940572-72ff-2058-e19f-5505ed99a755-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container').click();
-    await this.page.goto('https://rs2-0-1.webflow.io/#services');
+  }
 
+  async qualityService() {
     await this.page.getByText('QualityAssuranceQA').click();
     await expect(this.page.getByText('QualityAssuranceQA')).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Quality Assurance' })).toBeVisible();
@@ -168,7 +174,23 @@ class HomePage {
     await expect(this.page.getByText('QA Automation')).toBeVisible();
     await expect(this.page.locator('#w-node-_3a6023cc-b7ff-6e2f-6151-c0232c2537e5-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container')).toBeVisible();
     await this.page.locator('#w-node-_3a6023cc-b7ff-6e2f-6151-c0232c2537e5-4fe11dd0 > .expertise-title-container > div:nth-child(3) > .learn-more-container').click();
-    await this.page.goto('https://rs2-0-1.webflow.io/#services');
+  }
+
+  async expertisePage() {
+    await this.designExperienceService()
+    await this.#gotoHomePage();
+    await this.productStrategyService()
+    await this.#gotoHomePage();
+    await this.webDevelopmentService()
+    await this.#gotoHomePage();
+    await this.cloudDevopsService()
+    await this.#gotoHomePage();
+    await this.aiService()
+    await this.#gotoHomePage();
+    await this.dataService()
+    await this.#gotoHomePage();
+    await this.qualityService()
+
   }
 
   async #navigateThroughHeader() {
