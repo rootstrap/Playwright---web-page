@@ -37,10 +37,11 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: |
-        if [ "${{ github.event.inputs.fileType }}" == "all" ]; then
+        FILE_TYPE="${{ github.event.inputs.fileType }}"
+        if [ "$FILE_TYPE" == "all" ]; then
           npx playwright test --project=chromium
         else
-          npx playwright test tests/${{ github.event.inputs.fileType }}.spec.js --project=chromium
+          npx playwright test tests/$FILE_TYPE.spec.js --project=chromium
         fi
     - uses: actions/upload-artifact@v4
       if: always()
