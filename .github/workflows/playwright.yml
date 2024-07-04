@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       fileType:
-        description: 'Tipo de archivo a ejecutar'
+        description: 'Select tests to run'
         required: true
         default: 'all'
         type: choice
@@ -37,18 +37,10 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       run: |
-        FILE_TYPE="${{ github.event.inputs.fileType }}"
-        echo "Running tests for file type: $FILE_TYPE"
-        if [ "$FILE_TYPE" == "all" ]; then
+        if [ "${{ github.event.inputs.fileType }}" == "all" ]; then
           npx playwright test --project=chromium
         else
-          TEST_FILE="tests/$FILE_TYPE.spec.js"
-          if [ -f "$TEST_FILE" ]; then
-            npx playwright test $TEST_FILE --project=chromium
-          else
-            echo "Test file $TEST_FILE does not exist. Skipping tests."
-            exit 1
-          fi
+          npx playwright test "src/tests/${{ github.event.inputs.fileType }}.spec.js" --project=chromium
         fi
     - uses: actions/upload-artifact@v4
       if: always()
