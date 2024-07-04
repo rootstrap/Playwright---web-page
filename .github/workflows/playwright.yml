@@ -38,10 +38,17 @@ jobs:
     - name: Run Playwright tests
       run: |
         FILE_TYPE="${{ github.event.inputs.fileType }}"
+        echo "Running tests for file type: $FILE_TYPE"
         if [ "$FILE_TYPE" == "all" ]; then
           npx playwright test --project=chromium
         else
-          npx playwright test tests/$FILE_TYPE.spec.js --project=chromium
+          TEST_FILE="tests/$FILE_TYPE.spec.js"
+          if [ -f "$TEST_FILE" ]; then
+            npx playwright test $TEST_FILE --project=chromium
+          else
+            echo "Test file $TEST_FILE does not exist. Skipping tests."
+            exit 1
+          fi
         fi
     - uses: actions/upload-artifact@v4
       if: always()
