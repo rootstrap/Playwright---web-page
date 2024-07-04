@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright Tests (Push and Schedule)
 
 on:
   push:
@@ -6,21 +6,7 @@ on:
   pull_request:
     branches: [ main, master ]
   schedule:
-    - cron: "0 10 * * 1-5"  # Ejecutar a las 10 AM de lunes a viernes
-  workflow_dispatch:
-    inputs:
-      fileType:
-        description: 'Select tests to run'
-        required: true
-        default: 'all'
-        type: choice
-        options:
-          - all
-          - about
-          - careers
-          - home
-          - services
-          - work
+    - cron: "0 13 * * 1-5"  
 
 jobs:
   test:
@@ -36,12 +22,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: |
-        if [ "${{ github.event.inputs.fileType }}" == "all" ]; then
-          npx playwright test --project=chromium
-        else
-          npx playwright test "src/tests/${{ github.event.inputs.fileType }}.spec.js" --project=chromium
-        fi
+      run: npx playwright test --project=chromium
     - uses: actions/upload-artifact@v4
       if: always()
       with:
