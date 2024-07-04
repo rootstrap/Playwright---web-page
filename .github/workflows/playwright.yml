@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       fileType:
-        description: 'Tipo de pagina a ejecutar'
+        description: 'Tipo de archivo a ejecutar'
         required: true
         default: 'all'
         type: choice
@@ -41,6 +41,7 @@ jobs:
           npx playwright test --project=chromium
         else
           npx playwright test tests/${{ github.event.inputs.fileType }}.spec.js --project=chromium
+        fi
     - uses: actions/upload-artifact@v4
       if: always()
       with:
