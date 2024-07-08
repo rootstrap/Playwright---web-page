@@ -2,7 +2,7 @@ const { test, } = require('@playwright/test');
 const workPage = require('../pageObjects/workPage/ourWorkPage')
 
 
-test.describe('Study Cases', () => {
+test.describe('Work section - Study Cases', () => {
   let WorkPage;
 
   test.beforeEach(async ({ page }) => {

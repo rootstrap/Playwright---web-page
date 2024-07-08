@@ -3,7 +3,7 @@ const CareersPage = require('../pageObjects/careerPage/careersPage');
 const { faker } = require('@faker-js/faker');
 
 
-test.describe('Home Tests', () => {
+test.describe('Careers section', () => {
   let careersPage;
 
   test.beforeEach(async ({ page }) => {

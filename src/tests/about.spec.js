@@ -2,7 +2,7 @@ const { test, } = require('@playwright/test');
 const AboutPage = require('../pageObjects/aboutPage/aboutPage');
 
 
-test.describe('Home Tests', () => {
+test.describe('About section', () => {
   let aboutPage;
 
   test.beforeEach(async ({ page }) => {

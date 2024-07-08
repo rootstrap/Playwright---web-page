@@ -2,7 +2,7 @@ const { test, } = require('@playwright/test');
 const HomePage = require('../pageObjects/homePage/homePage');
 const ServicesPage = require('../pageObjects/servicesPage/servicesPage')
 
-  test.describe('Home Tests', () => {
+  test.describe('Services section', () => {
     let homePage;
     let servicePage;
   

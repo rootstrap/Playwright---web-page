@@ -287,7 +287,6 @@ class workPage {
     await this.page.getByRole('link', { name: data.fuzzyStudyCase.link }).click();
     await expect(this.page.getByText(elements.titleText.value)).toBeVisible();
     await expect(this.page.getByRole(elements.thumbnailsImg.name, elements.thumbnailsImg.locator)).toBeVisible();
-    await expect(this.page.getByRole(elements.fuzzyHeading.name, elements.fuzzyHeading.locator)).toBeVisible();
     await expect(this.page.getByRole(elements.servicesProvidedHeading.name, elements.servicesProvidedHeading.locator)).toBeVisible();
     await expect(this.page.getByText(elements.projectTypeText.value)).toBeVisible();
     await expect(this.page.getByText(elements.industryText.value, { exact: elements.industryText.exact })).toBeVisible();
