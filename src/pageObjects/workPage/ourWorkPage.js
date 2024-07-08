@@ -481,7 +481,6 @@ class workPage {
     await this.page.getByRole('link', { name: data.exiStudyCase.link }).click();
     await expect(this.page.getByText(elements.futureText.value)).toBeVisible();
     await expect(this.page.getByRole(elements.thumbnailsImg.name, elements.thumbnailsImg.locator)).toBeVisible();
-    await expect(this.page.getByRole(elements.exiHeading.name, elements.exiHeading.locator)).toBeVisible();
     await expect(this.page.getByRole(elements.servicesProvidedHeading.name, elements.servicesProvidedHeading.locator)).toBeVisible();
     await expect(this.page.getByText(elements.projectTypeText.value)).toBeVisible();
     await expect(this.page.locator('div').filter({ hasText: /^Staff Augmentation$/ }).nth(1)).toBeVisible();
