@@ -146,7 +146,7 @@ class BlogPage {
     await this.page.goBack()
     await expect(this.page.getByRole('link', { name: 'Blockchain DevSecOps- What is' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Blockchain DevSecOps- What is' }).click();
-    await expect(this.page.getByText('Blockchain')).toBeVisible();
+    await expect(this.page.getByText('Blockchain', { exact: true })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'DevSecOps- What is it, and' })).toBeVisible();
     await expect(this.page.locator('.c-blog-post-image')).toBeVisible();
     await this.page.goBack()
@@ -158,7 +158,7 @@ class BlogPage {
     await this.page.goBack()
     await expect(this.page.getByRole('link', { name: 'Blockchain How to Create Your' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Blockchain How to Create Your' }).click();
-    await expect(this.page.getByText('Blockchain')).toBeVisible();
+    await expect(this.page.getByText('Blockchain', { exact: true })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'How to Create Your Own DeFi' })).toBeVisible();
     await expect(this.page.locator('.c-blog-post-image')).toBeVisible();
     await expect(this.page.getByRole('link', { name: 'Back to Blog' })).toBeVisible();

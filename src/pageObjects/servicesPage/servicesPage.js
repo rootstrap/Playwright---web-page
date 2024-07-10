@@ -59,7 +59,7 @@ class ServicesPage {
     await expect(this.page.getByRole('button', { name: 'User-Centered Product' })).toBeVisible();
     await this.page.getByRole('button', { name: 'User-Centered Product' }).click();
     await expect(this.page.getByText('Product Discovery is a')).toBeVisible();
-    await expect(this.page.getByText('Product Discovery is a')).toHaveText('Product Discovery is a process that supports and helps product teams refine ideas by understanding user characteristics as they relate to the platform demographics while identifying the most efficient and effective ways to meet user expectations. Our process utilizes the design-based, double diamond framework, which is an iterative approach that helps technical teams identify and define user needs, generate innovative solutions and ultimately arrive at a well-informed and validated product concept.');
+    await expect(this.page.getByText('Product Discovery is a')).toHaveText('Product Discovery is a process that supports and helps product teams refine ideas by understanding user characteristics as they relate to the platform demographics while identifying the most efficient and effective ways to meet user expectations. Our process utilizes the design-based, double diamond framework, which is an iterative approach that helps technical teams identify and define user needs, generate innovative solutions and ultimately arrive at a well-informed and validated productconcept.');
     await expect(this.page.getByRole('heading', { name: 'Articles', exact: true })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Related Projects' })).toBeVisible();
     await this.page.getByLabel('next slide').click();

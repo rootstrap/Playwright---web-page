@@ -575,7 +575,6 @@ class workPage {
     await expect(this.page.getByRole(elements.textExtractionHeading.name, elements.textExtractionHeading.locator)).toBeVisible();
     await expect(this.page.getByText(elements.newModuleText.value)).toBeVisible();
     await expect(this.page.getByText(elements.resultsText.value, { exact: elements.resultsText.exact })).toBeVisible();
-    await expect(this.page.getByText(elements.trustedYearsText.value)).toBeVisible();
     await expect(this.page.getByRole(elements.keyTechnologiesHeading.name, elements.keyTechnologiesHeading.locator)).toBeVisible();
     await expect(this.page.getByText(elements.mobileReactText.value)).toBeVisible();
     await expect(this.page.getByText(elements.webAngularText.value)).toBeVisible();

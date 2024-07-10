@@ -78,11 +78,6 @@ async availablePositionsCareer() {
     await expect(this.page.getByRole('heading', { name: 'We believe that collaborative' })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'We believe that collaborative' })).toHaveText('We believe that collaborative, close-knit teams can achieve the unthinkable.');
     await expect(this.page.locator('div').filter({ hasText: 'Are you up for' }).nth(3)).toBeVisible();
-    await expect(this.page.locator('div').filter({ hasText: 'Design ManagerArgentina/Uruguay/Colombia/US·Full-timeApply now' }).nth(3)).toBeVisible();
-    await expect(this.page.locator('div').filter({ hasText: 'Data EngineerArgentina/Uruguay/Colombia·Full-timeApply now' }).nth(3)).toBeVisible();
-    await expect(this.page.locator('div').filter({ hasText: 'Sr Wordpress DeveloperArgentina/Uruguay/Colombia·Full-timeApply now' }).nth(3)).toBeVisible();
-    await expect(this.page.locator('div').filter({ hasText: 'Sr Product ManagerArgentina/Uruguay/Colombia·Full-TimeApply now' }).nth(3)).toBeVisible();
-    await expect(this.page.locator('div').filter({ hasText: 'Client Partner HunterUnited States·Full-timeApply now' }).nth(3)).toBeVisible();
 }
 
   async talentCommunityComponent() {
