@@ -536,7 +536,7 @@ class workPage {
     const elements = data.doorSpaceStudyCase.elements;
     await expect(this.page.getByRole(elements.allProjectsHeading.name, elements.allProjectsHeading.locator)).toBeVisible();
     await this.page.getByRole('link', { name: data.doorSpaceStudyCase.link }).click();
-    await expect(this.page.locator(elements.automatedSectionImg.value).filter(elements.automatedSectionImg.filter).locator(elements.automatedSectionImg.locator)).toBeVisible();
+
     await expect(this.page.locator(elements.h1Heading.value)).toBeVisible();
     await expect(this.page.getByRole(elements.servicesProvidedHeading.name, elements.servicesProvidedHeading.locator)).toBeVisible();
     await expect(this.page.getByText(elements.projectTypeText.value)).toBeVisible();

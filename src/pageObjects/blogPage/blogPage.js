@@ -121,7 +121,7 @@ class BlogPage {
     await this.page.goBack()
     await expect(this.page.getByRole('link', { name: 'Agile Spillovers - How to' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Agile Spillovers - How to' }).click();
-    await expect(this.page.getByText('Agile')).toBeVisible();
+    await expect(this.page.getByText('Agile').first()).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Spillovers - How to Deal with' })).toBeVisible();
     await expect(this.page.locator('.c-blog-post-image')).toBeVisible();
     await this.page.goBack()

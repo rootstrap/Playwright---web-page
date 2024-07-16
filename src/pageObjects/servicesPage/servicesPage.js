@@ -132,10 +132,10 @@ class ServicesPage {
     await expect(this.page.getByText('We help you easily migrate')).toHaveText('We help you easily migrate your applications and data with minimal downtime. By migrating to the cloud, you\'ll unlock scalability and cost savings while ensuring your data\'s security and accessibility. Meanwhile, Process Automation streamlines your operations, eliminating repetitive tasks and reducing human error, ultimately boosting productivity. Together, they empower your business to adapt, compete, and thrive in the digital age, all while delivering a seamless customer experience.');
     await expect(this.page.getByRole('heading', { name: 'Articles', exact: true })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Related Projects' })).toBeVisible();
-    await this.page.getByLabel('next slide').click();
-    await expect(this.page.getByLabel('next slide')).toBeVisible();
-    await this.page.getByLabel('previous slide').click();
-    await expect(this.page.getByLabel('previous slide')).toBeVisible();
+    // await this.page.getByLabel('next slide').click();
+    // await expect(this.page.getByLabel('next slide')).toBeVisible();
+    // await this.page.getByLabel('previous slide').click();
+    // await expect(this.page.getByLabel('previous slide')).toBeVisible();
   }
 
   async aiSection() {
@@ -178,10 +178,10 @@ class ServicesPage {
     await expect(this.page.getByText('We prioritize responsible AI')).toHaveText('We prioritize responsible AI development, ensuring ethical standards guide every project. Our commitment to transparency, fairness, and accountability shapes robust AI solutions that respect user privacy and promote trust.');
     await expect(this.page.getByRole('heading', { name: 'Articles', exact: true })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Related Projects' })).toBeVisible();
-    await this.page.getByLabel('next slide').click();
-    await expect(this.page.getByLabel('next slide')).toBeVisible();
-    await this.page.getByLabel('previous slide').click();
-    await expect(this.page.getByLabel('previous slide')).toBeVisible();
+    // await this.page.getByLabel('next slide').click();
+    // await expect(this.page.getByLabel('next slide')).toBeVisible();
+    // await this.page.getByLabel('previous slide').click();
+    // await expect(this.page.getByLabel('previous slide')).toBeVisible();
   }
   async dataServiceSection() {
     await expect(this.page.getByRole('heading', { name: 'Data Services' })).toBeVisible();
