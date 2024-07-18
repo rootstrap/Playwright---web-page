@@ -140,7 +140,7 @@ class BlogPage {
     await this.page.getByLabel('Form', { exact: true }).getByText('Blockchain').click();
     await expect(this.page.getByRole('link', { name: 'Blockchain How QA Can Help' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Blockchain How QA Can Help' }).click();
-    await expect(this.page.getByText('Blockchain', { exact: true })).toBeVisible();
+    await expect(this.page.getByText('Blockchain', { exact: true }).first()).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'How QA Can Help With' })).toBeVisible();
     await expect(this.page.locator('.c-blog-post-image')).toBeVisible();
     await this.page.goBack()
@@ -152,7 +152,8 @@ class BlogPage {
     await this.page.goBack()
     await expect(this.page.getByRole('link', { name: 'Blockchain DankSharding -' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Blockchain DankSharding -' }).click();
-    await expect(this.page.getByText('Blockchain', { exact: true })).toBeVisible();
+    await expect(this.page.getByText('Blockchain', { exact: true }).first()
+  ).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'DankSharding - What is it and' })).toBeVisible();
     await expect(this.page.locator('.c-blog-post-image')).toBeVisible();
     await this.page.goBack()
