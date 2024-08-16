@@ -225,7 +225,7 @@ class BlogPage {
   async developmentBlogPage() {
     await expect(this.page.getByRole('heading', { name: 'Get great news and insight' })).toBeVisible();
     await expect(this.page.getByLabel('Form', { exact: true }).getByText('Development')).toBeVisible();
-    await this.page.getByLabel('Form', { exact: true }).getByText('Development').click();
+    await this.page.getByLabel('Form', { exact: true }).getByText('Development', { exact: true }).click();
     await expect(this.page.getByRole('link', { name: 'Development Demystifying CQRS' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Development Demystifying CQRS' }).click();
     await expect(this.page.getByText('Development', { exact: true })).toBeVisible();
@@ -234,7 +234,7 @@ class BlogPage {
     await this.page.goBack()
     await expect(this.page.getByRole('link', { name: 'Development How to Set Up' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Development How to Set Up' }).click();
-    await expect(this.page.getByText('Development')).toBeVisible();
+    await expect(this.page.getByText('Development', { exact: true })).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'How to Set Up Material-UI (' })).toBeVisible();
     await expect(this.page.locator('.c-blog-post-image')).toBeVisible();
     await this.page.goBack()

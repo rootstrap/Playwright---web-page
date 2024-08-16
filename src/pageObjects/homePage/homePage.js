@@ -197,7 +197,7 @@ class HomePage {
     await expect(this.page.getByLabel('Home')).toBeVisible();
     await this.page.getByLabel('Home').click();
     await expect(this.page).toHaveURL("https://rs2-0-1.webflow.io");
-    await this.page.getByRole('link', { name: 'Work' }).click();
+    await this.page.getByRole('link', { name: 'Work', exact: true }).click();
     await expect(this.page).toHaveURL('https://rs2-0-1.webflow.io/our-work');
     await this.page.getByRole('link', { name: 'About', exact:true}).click();
     await expect(this.page).toHaveURL('https://rs2-0-1.webflow.io/about');
