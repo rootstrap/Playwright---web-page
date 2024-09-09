@@ -207,7 +207,7 @@ class HomePage {
     await expect(this.page).toHaveURL('https://rs2-0-1.webflow.io/blog');
     await this.page.getByRole('link', { name: "Let's Talk", exact: true }).click();
     await this.page.getByRole('link', { name: 'Expertise' }).click();
-    await expect(this.page).toHaveURL('https://rs2-0-1.webflow.io/#services');
+    await expect(this.page).toHaveURL('https://rs2-0-1.webflow.io/#expertise');
   }
 
   async #fillForm() {
