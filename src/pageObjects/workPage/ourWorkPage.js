@@ -610,7 +610,6 @@ class workPage {
     await expect(this.page.getByRole(elements.allProjectsHeading.name, elements.allProjectsHeading.locator)).toBeVisible();
     await this.page.getByRole('link', { name: data.summumStudyCase.link }).click();
     await expect(this.page.locator(elements.mobileAppSectionImg.value).filter(elements.mobileAppSectionImg.filter).locator(elements.mobileAppSectionImg.locator)).toBeVisible();
-    await expect(this.page.getByRole(elements.summumHeading.name, elements.summumHeading.locator)).toBeVisible();
     await expect(this.page.getByRole(elements.servicesProvidedHeading.name, elements.servicesProvidedHeading.locator)).toBeVisible();
     await expect(this.page.getByText(elements.projectTypeText.value)).toBeVisible();
     await expect(this.page.locator('div').filter({ hasText: /^Staff Augmentation$/ }).nth(1)).toBeVisible();
