@@ -296,7 +296,7 @@ class BlogPage {
     await this.page.goBack()
     await expect(this.page.getByRole('link', { name: 'Product Design How Much' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Product Design How Much' }).click();
-    await expect(this.page.getByText('Product Design', { exact: true })).toBeVisible();
+    await expect(this.page.getByText('Product Design', { exact: true }).first()).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'How Much Coding Do Product' })).toBeVisible();
     await expect(this.page.locator('.c-blog-post-image')).toBeVisible();
     await this.page.goBack()
