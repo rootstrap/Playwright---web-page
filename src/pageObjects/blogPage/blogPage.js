@@ -352,7 +352,7 @@ class BlogPage {
     await this.page.getByLabel('Form', { exact: true }).getByText('Security').click();
     await expect(this.page.getByRole('link', { name: 'Security How to start' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Security How to start' }).click();
-    await expect(this.page.getByText('Security', { exact: true })).toBeVisible();
+    await expect(this.page.getByText('Security', { exact: true }).first()).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'How to start learning about' })).toBeVisible();
     await expect(this.page.locator('.c-blog-post-image')).toBeVisible();
     await this.page.goBack()
