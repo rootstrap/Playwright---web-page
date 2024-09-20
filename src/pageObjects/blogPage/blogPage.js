@@ -228,7 +228,7 @@ class BlogPage {
     await this.page.getByLabel('Form', { exact: true }).getByText('Development', { exact: true }).click();
     await expect(this.page.getByRole('link', { name: 'Development Demystifying CQRS' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Development Demystifying CQRS' }).click();
-    await expect(this.page.getByText('Development', { exact: true })).toBeVisible();
+    await expect(this.page.getByText('Development', { exact: true }).first()).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'Demystifying CQRS: A' })).toBeVisible();
     await expect(this.page.locator('.c-blog-post-image')).toBeVisible();
     await this.page.goBack()
