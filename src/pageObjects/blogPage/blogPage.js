@@ -115,7 +115,7 @@ class BlogPage {
     await this.page.goBack()
     await expect(this.page.getByRole('link', { name: 'Agile QA & Dev Teams in Scrum' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Agile QA & Dev Teams in Scrum' }).click();
-    await expect(this.page.getByText('Agile', { exact: true })).toBeVisible();
+    await expect(this.page.getByText('Agile', { exact: true }).first()).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'QA & Dev Teams in Scrum Cycles' })).toBeVisible();
     await expect(this.page.locator('.c-blog-post-image')).toBeVisible();
     await this.page.goBack()
@@ -146,7 +146,7 @@ class BlogPage {
     await this.page.goBack()
     await expect(this.page.getByRole('link', { name: 'Blockchain DevSecOps- What is' })).toBeVisible();
     await this.page.getByRole('link', { name: 'Blockchain DevSecOps- What is' }).click();
-    await expect(this.page.getByText('Blockchain', { exact: true })).toBeVisible();
+    await expect(this.page.getByText('Blockchain', { exact: true }).first()).toBeVisible();
     await expect(this.page.getByRole('heading', { name: 'DevSecOps- What is it, and' })).toBeVisible();
     await expect(this.page.locator('.c-blog-post-image')).toBeVisible();
     await this.page.goBack()
